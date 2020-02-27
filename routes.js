@@ -1,11 +1,11 @@
 exports.index = function index (req, res) {
-    res.render('index.ejs')
+    res.render('pages/index')
 }
 
 exports.about = function about (req, res) {
-    res.render('about.ejs')
+    res.render('pages/about')
 }
 
 exports.notFound = function notFound (req, res) {
-    res.status(404).render('not-found.ejs')
+    res.status(404).render('pages/not-found')
 }
