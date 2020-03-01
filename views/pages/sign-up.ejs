@@ -1,0 +1,58 @@
+<%- include ('../partials/head') %>
+
+<%- include ('../partials/header') %>
+
+<body>
+    <form action=/sign-up method=post enctype=multipart/form-data>
+        <label for="firstname">Voornaam</label><input id="firstname" type="text" name="firstname" required>
+        <label for="surname">Achternaam</label><input id="surname" type="text" name="surname" required>
+
+        <label for="age">Leeftijd</label><input id="age" type="number" name="age" required>
+
+        <label for="gender">Geslacht</label>
+        <input type="radio" name="gender" value="man">Man
+        <input type="radio" name="gender" value="female">Vrouw
+        <input type="radio" name="gender" value="other">Anders
+
+        <label>Eredivisie club</label>
+        <select name="club">
+            <option value="0">Selecteer Eredivisie club:</option>
+            <option value="ADO">ADO</option>
+            <option value="Ajax">Ajax</option>
+            <option value="AZ">AZ</option>
+            <option value="Emmen">FC Emmen</option>
+            <option value="Sparta">Sparta Rotterdam</option>
+            <option value="Feyenood">Feyenoord</option>
+            <option value="Fortuna">Fortuna Sittard</option>
+            <option value="RKC">RKC Waalwijk</option>
+            <option value="FC Groningen">FC Groningen</option>
+            <option value="SC Heerenveen">SC Heerenveen</option>
+            <option value="Heracles Almelo">Heracles Almelo</option>
+            <option value="Twente">FC Twente</option>
+            <option value="PEC Zwolle">PEC Zwolle</option>
+            <option value="PSV">PSV</option>
+            <option value="FC Utrecht">FC Utrecht</option>
+            <option value="Vitesse">Vitesse</option>
+            <option value="VVV Venlo">VVV Venlo</option>
+            <option value="Willem 2">Willem 2</option>
+        </select>
+
+        <label for="photo">Profiel foto</label><input id="photo" type="file" name="cover" accept=image/*>
+
+        <label for="email">Email</label><input id="email" type="email" name="email" required>
+
+        <label for="password">Wachtwoord</label><input id="password" type="password" name="password" required>
+
+        <label for="searchGender">Opzoek naar</label>
+        <input type="radio" name="searchGender" value="man">Man
+        <input type="radio" name="searchGender" value="female">Vrouw
+        <input type="radio" name="searchGender" value="other">Anders
+
+        <label for="omschrijving">Omschrijving van jezelf</label><textarea id="omschrijving" name="description" rows="7" cols="45"></textarea>
+
+        <button class="default color_blue">Registreren</button>
+    </form>
+
+</section>
+
+</body>

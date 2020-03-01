@@ -9,6 +9,7 @@ express()
     .set('views', 'views')
 
     .get('/', routes.index)
+    .get('/sign-up', routes.signUp)
     .get('/about', routes.about)
     .use(routes.notFound)
     
