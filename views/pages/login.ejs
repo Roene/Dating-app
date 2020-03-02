@@ -3,6 +3,16 @@
 <body>
 <%- include ('../partials/header') %>
 
+<section>
+    <p>Om gebruik te maken van EreDate moet je inloggen met je account</p>
+</section>
+
+<form action=/login method=post>
+    <label for="email">Email</label><input id="email" type="text" name="email" placeholder="example@example.com" required>
+    <label for="password">Wachtwoord</label><input id="password" type="password" name="password" required>
+
+    <button class="button loginButton">Inloggen</button>
+</form>
 
 <%- include ('../partials/footer') %>
 </body>
