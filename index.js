@@ -6,6 +6,8 @@ const routes = require('./routes')
 
 require('dotenv').config(); 
 
+const upload = multer({dest: 'static/upload/'});
+
 express()
     .use('/static', express.static('static'))
     .use(bodyParser.urlencoded({extended: true}))
@@ -13,8 +15,12 @@ express()
     .set('views', 'views')
 
     .get('/', routes.index)
-    .get('/sign-up', routes.signUp)
-    .get('/login', routes.login)
+    .get('/sign-up', routes.signUpForm)
+    .post('/sign-up', upload.single('cover'), routes.signUp)
+    .get('/login', routes.loginForm)
+    .post('/login', routes.login)
+    .get('/dashboard', routes.dashboard)
+    
     .use(routes.notFound)
     
     .listen(3400);
