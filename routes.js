@@ -6,8 +6,8 @@ exports.signUp = function signUp (req, res) {
     res.render('pages/sign-up')
 }
 
-exports.about = function about (req, res) {
-    res.render('pages/about')
+exports.login = function login (req, res) {
+    res.render('pages/login')
 }
 
 exports.notFound = function notFound (req, res) {

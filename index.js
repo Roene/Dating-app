@@ -10,7 +10,7 @@ express()
 
     .get('/', routes.index)
     .get('/sign-up', routes.signUp)
-    .get('/about', routes.about)
+    .get('/login', routes.login)
     .use(routes.notFound)
     
     .listen(3400);
