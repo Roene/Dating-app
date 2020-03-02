@@ -2,19 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const slug = require('slug')
 const multer = require('multer')
-const mongo = require('mongodb')
 const session = require('express-session')
 const routes = require('./routes')
 
 require('dotenv').config() 
-
-let db = null
-const url = process.env.MONGODB_URI
-
-mongo.MongoClient.connect(url, {useUnifiedTopology: true}, function (err, client) {
-    if (err) throw err
-    db = client.db(process.env.DB_NAME)
-  })
 
 const upload = multer({dest: 'static/upload/'});
 
@@ -40,4 +31,3 @@ express()
     .use(routes.notFound)
     
     .listen(3400);
-
