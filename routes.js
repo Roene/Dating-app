@@ -1,5 +1,7 @@
 const mongo = require('mongodb')
 const session = require('express-session')
+const bcrypt = require('bcrypt')
+const saltRounds = 10
 
 require('dotenv').config() 
 
@@ -20,22 +22,49 @@ exports.signUpForm = function signUpForm (req, res) {
 }
 
 exports.signUp = function signUp (req, res, next) {
-    db.collection('EreDate').insertOne ({
-        firstname: req.body.firstname,
-        surname: req.body.surname,
-        age: Number(req.body.age),
-        gender: req.body.gender, 
-        club: req.body.club,
-        picture: req.file ? req.file.filename : null,
-        email: req.body.email,
-        password: req.body.password,
-        searchGender: req.body.searchGender,
-        description: req.body.description
-    }, done)
+       let firstname =req.body.firstname
+       let surname = req.body.surname
+       let age = Number(req.body.age)
+       let gender = req.body.gender
+       let club = req.body.club
+       let picture = req.file ? req.file.filename : null
+       let email = req.body.email
+       let password = req.body.password
+       let searchGender = req.body.searchGender
+       let description = req.body.description
+
+       db.collection('Users').find({email: email}, done)
 
     function done (err, data) {
         if (err) {
             next(err)
+        } else {
+            bcrypt.hash(password, saltRounds, onhash)
+        }
+    }
+
+    function onhash (err, hash) {
+        if (err) {
+            next (err)
+        } else {
+            db.collection('Users').insertOne({
+                firstname: firstname,
+                surname: surname,
+                age: age,
+                gender: gender,
+                club: club,
+                picture: picture,
+                email: email,
+                hash: hash,
+                searchGender: searchGender,
+                description: description 
+            }, onInsert)
+        }
+    }
+    
+    function onInsert (err, data) {
+        if (err) {
+            next (err)
         } else {
             res.redirect('/login')
         }
