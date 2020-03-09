@@ -26,10 +26,8 @@ express()
     .set('view engine', 'ejs')
     .set('views', 'views')
 
-    .get('/', routes.index)
-    .get('/dashboard', routes.dashboard)
     .use(auth)
 
-    .use(routes.notFound)
-    
+    .use((req, res) => res.status(404).render('pages/not-found'))
+
     .listen(3400);
