@@ -13,8 +13,8 @@ const auth = async (req, res, next) => {
             .split('dating_token=')
             .filter(x => x!=='')[0]
         // END OF SOURCE
-        const data = jwt.verify(token, process.env.JWT_KEY)
         const user = await User.findOne({ _id: data._id, 'tokens.token': token })
+        const data = jwt.verify(token, process.env.JWT_KEY)
         if (!user) {
             throw new Error()
         }
@@ -22,7 +22,7 @@ const auth = async (req, res, next) => {
         req.token = token
         next()
     } catch (err) {
-        res.status(401).send({ error: "Geen toegang" })
+        res.status(401).send({ error: "Geen toegang, u bent niet ingelogd" })
     }
 }
 

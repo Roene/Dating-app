@@ -16,7 +16,7 @@ router
             const { email, password } = req.body
             const user = await User.findByCredentials(email, password)
             if (!user) {
-                res.status(401).send({ error: 'Login klopt niet' })
+                res.status(401).send({ error: 'Email of wachtwoord klopt niet' })
             }
             const token = await user.generateAuthToken()
             res.cookie('dating_token', token, {
@@ -56,14 +56,13 @@ router
             await user.save()
             const token = await user.generateAuthToken()
             res.cookie('dating_token', token, {
-                maxAge: (24*7) * 60 * 60 * 1000
+                maxAge: (24*7) * 60 * 60 * 1000 // 7 Days because it is in milliseconds
             })
             res.redirect('/')
         } catch (err) {
             res.status(400).send(err)
         }
     })
-    // .get('/logout', (req, res) => res.render('pages/logout'))
     .get('/logout', auth, async (req, res) => {
         try {
             req.user.tokens = req.user.tokens.filter((token) => {

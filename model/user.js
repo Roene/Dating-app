@@ -71,7 +71,7 @@ userSchema.methods.generateAuthToken = async function() {
 userSchema.statics.findByCredentials = async (email, password) => {
     const user = await User.findOne({ email })
     if (!user) {
-        throw new Error({ error: 'Geen geldig emailaddres' })
+        throw new Error({ error: 'Geen geldig emailadres gevonden in de database' })
     }
     const isPasswordMatch = await bcrypt.compare(password, user.password)
     if (!isPasswordMatch) {
