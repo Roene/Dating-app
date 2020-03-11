@@ -109,3 +109,23 @@ footer {
     height: 3.5rem; 
 }
 
+footer nav ul { 
+    list-style: none;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    margin-left: -20px;
+    margin-top: 5px;
+}
+
+footer nav ul li a {
+    color: #000000
+}
+
+footer nav ul li a:active {
+    color: #f42400
+}
+
+footer nav ul li a:hover {
+    color: #ffffff
+}

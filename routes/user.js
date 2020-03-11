@@ -7,9 +7,9 @@ const auth      = require('../middleware/auth')
 const upload    = multer({dest: 'static/upload/'})
 
 router
-    .get('/', (req, res) => res.render('pages/index'))
-    .get('/signup', (req, res) => res.render('pages/signup'))
-    .get('/login', (req, res) => res.render('pages/login'))
+    .get('/', (req, res) => { res.render('pages/index') })
+    .get('/signup', (req, res) => { res.render('pages/signup') })
+    .get('/login', (req, res) => { res.render('pages/login') })
     // BRON : https://medium.com/swlh/jwt-authentication-authorization-in-nodejs-express-mongodb-rest-apis-2019-ad14ec818122
     .post('/login', async (req, res) => {
         try {
@@ -75,6 +75,10 @@ router
             res.status(500).send(err)
         }
     })
-    .get('/dashboard', auth, (req, res) => res.render('pages/dashboard'))
+    .get('/dashboard', auth, (req, res) =>  {
+            res.render('pages/dashboard', {
+                user: { firstname: req.body.firstname }
+        })
+    })
 
 module.exports = router
