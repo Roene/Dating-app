@@ -2,6 +2,14 @@
 
 <body>
 <%- include ('../partials/header') %>
+    <main>
+        <article>
+            <p>test</p>
+        </article>
+    </main>
+<% users.forEach((user, index) => { %>
     <p>Welkom <%= user.firstname %></p>
+    <p>Leeftijd: <%= user.age %></p>
+<% }) %>
 <%- include ('../partials/nav') %>
 </body>

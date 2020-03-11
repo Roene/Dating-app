@@ -75,10 +75,14 @@ router
             res.status(500).send(err)
         }
     })
-    .get('/dashboard', auth, (req, res) =>  {
-            res.render('pages/dashboard', {
-                user: { firstname: req.body.firstname }
-        })
+    .get('/dashboard', auth, async (req, res) =>  {
+        try {
+            const users = await User.find({}).lean()
+            res.render('pages/dashboard', {users})
+        } catch (err) {
+            console.log(err)
+            res.status(500).send('er ging iets mis')
+        }
     })
 
 module.exports = router
