@@ -3,6 +3,7 @@ const router    = express.Router()
 const multer    = require('multer')
 const User      = require('../model/user')
 const auth      = require('../middleware/auth')
+const ObjectId  = require('mongodb').ObjectID
 
 const upload    = multer({dest: 'static/upload/'})
 
@@ -81,7 +82,15 @@ router
             res.render('pages/dashboard', {users})
         } catch (err) {
             console.log(err)
-            res.status(500).send('er ging iets mis')
+            res.status(500).send('Er ging iets mis')
+        }
+    })
+    .get('/profile', auth, async (req, res) => {
+        try {
+            const user = req.user
+            res.render('pages/profile', {user})
+        } catch (err) {
+            res.status(500).send('Er ging iets mis')
         }
     })
 

@@ -17,6 +17,6 @@ express()
 
     .use(auth)
 
-    .use((req, res) => res.status(404).render('pages/not-found'))
+    .use((req, res) => { res.status(404).render('pages/not-found') }) 
 
     .listen(3400);

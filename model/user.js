@@ -23,9 +23,9 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     }, 
-    // file: {
-    //     type: String,
-    //     required: true
+    // image: {
+    //     data: Buffer,
+    //     type: String
     // }, 
     email: {
         type: String,
