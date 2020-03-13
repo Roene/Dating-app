@@ -17,16 +17,15 @@ router
             const { email, password } = req.body
             const user = await User.findByCredentials(email, password)
             if (!user) {
-                res.status(401).send({ error: 'Email of wachtwoord klopt niet' })
+                res.status(401).send('U heeft geen toegang')
             }
             const token = await user.generateAuthToken()
             res.cookie('dating_token', token, {
                 maxAge: (24*7) * 60 * 60 * 1000
             })
             res.redirect('dashboard')
-            console.log( { user, token })
         } catch (err) {
-            res.status(400).send(err)
+            res.status(400).send('Email of wachtwoord klopt niet')
         }
     })
     .post('/signup', upload.single('image'), async (req, res) => {
@@ -71,7 +70,7 @@ router
             res.render('pages/dashboard', {users})
         } catch (err) {
             console.log(err)
-            res.status(500).send('Er ging iets mis')
+            res.status(500).send('Er ging iets mis op de server')
         }
     })
     .get('/profile', auth, async (req, res) => {
@@ -79,7 +78,16 @@ router
             const user = req.user
             res.render('pages/profile', {user})
         } catch (err) {
-            res.status(500).send('Er ging iets mis')
+            res.status(500).send('Er ging iets mis server')
+        }
+    })
+    .post('/delete', auth, async (req, res) => {
+        try {
+            const user = req.user
+            await user.remove()
+            res.status(204).redirect('/')
+        } catch (err) {
+            res.status(500).send('Er ging iets niet goed met verwijderen')
         }
     })
 

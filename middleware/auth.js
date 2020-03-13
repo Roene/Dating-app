@@ -22,7 +22,7 @@ const auth = async (req, res, next) => {
         req.token = token
         next()
     } catch (err) {
-        res.status(401).send({ error: "Geen toegang, u bent niet ingelogd" })
+        res.status(401).send("Geen toegang, u bent niet ingelogd")
     }
 }
 

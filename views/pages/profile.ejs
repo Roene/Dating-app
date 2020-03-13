@@ -2,7 +2,13 @@
 
 <body>
 <%- include ('../partials/header') %>
-    <p>Welkom <%= user.firstname %></p>
-    <img src="/static/upload/<%= user.image %>" alt="profiel foto">
+    <main>
+        <img src="/static/upload/<%= user.image %>" alt="profiel foto">
+        <p>Welkom <%= user.firstname + " " + user.surname%> op je profiel. Als je je account wil verwijderen klik dan op de verwijder knop hieronder.
+        Let op dit kan niet meer ongedaan worden gemaakt!</p>
+        <form method="POST" action="/delete" >
+            <button class="button delete loginButton">Verwijder account</button>
+        </form>
+    </main>
 <%- include ('../partials/nav') %>
 </body>
