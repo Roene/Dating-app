@@ -1,9 +1,9 @@
 const express   = require('express')
 const router    = express.Router()
 const multer    = require('multer')
+// OWN FILES
 const User      = require('../model/user')
 const auth      = require('../middleware/auth')
-const ObjectId  = require('mongodb').ObjectID
 
 const upload    = multer({dest: 'static/upload/'})
 
