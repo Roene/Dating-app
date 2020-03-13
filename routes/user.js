@@ -66,14 +66,15 @@ router
     })
     .get('/dashboard', auth, async (req, res) =>  {
         try {
-            const users = await User.find({}).lean()
+            const users = await User.find({ _id: {$ne: req.user._id} }).lean()
             res.render('pages/dashboard', {users})
+            console.log({users})
         } catch (err) {
             console.log(err)
             res.status(500).send('Er ging iets mis op de server')
         }
     })
-    .get('/profile', auth, async (req, res) => {
+    .get('/profile', auth, (req, res) => {
         try {
             const user = req.user
             res.render('pages/profile', {user})
