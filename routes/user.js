@@ -29,29 +29,18 @@ router
             res.status(400).send(err)
         }
     })
-    .post('/signup', upload.single('cover'), async (req, res) => {
-        const {
-            firstname,
-            surname,
-            age,
-            gender,
-            club,
-            email,
-            password,
-            searchGender,
-            description
-        } = req.body
-
+    .post('/signup', upload.single('image'), async (req, res) => {
         const user = new User({
-            firstname,
-            surname,
-            age,
-            gender,
-            club,
-            email,
-            password,
-            searchGender,
-            description
+            firstname: req.body.firstname,
+            surname: req.body.surname,
+            age: req.body.age,
+            gender: req.body.gender,
+            club: req.body.club,
+            image: req.file ? req.file.filename : null,
+            email: req.body.email,
+            password: req.body.password,
+            searchGender: req.body.searchGender,
+            description: req.body.description
         })
         try {
             await user.save()

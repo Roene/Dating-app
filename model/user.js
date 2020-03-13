@@ -23,10 +23,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     }, 
-    // image: {
-    //     data: Buffer,
-    //     type: String
-    // }, 
+    image: {
+        type: String,
+        required: true
+    }, 
     email: {
         type: String,
         required: true
