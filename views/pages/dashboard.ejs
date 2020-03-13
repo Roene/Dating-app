@@ -2,14 +2,14 @@
 
 <body>
 <%- include ('../partials/header') %>
-    <main>
-        <article>
-            <p>test</p>
+    <section>
+        <% users.forEach((user, index) => { %>
+        <article style="background-image: url('/static/upload/<%= user.image %>'); background-repeat: no-repeat; background-size: cover;">
+            <p><%= user.firstname + " " + user.surname + " " + user.age%></p>
+            <p><%= user.club %></p>
+            <p><%= user.description %></p>
         </article>
-    </main>
-<% users.forEach((user, index) => { %>
-    <p>Welkom <%= user.firstname %></p>
-    <p>Leeftijd: <%= user.age %></p>
-<% }) %>
+        <% }) %>
+    </section>
 <%- include ('../partials/nav') %>
 </body>

@@ -31,6 +31,12 @@ header {
     height: 3.5em;
 }
 
+header img {
+    width: 10%;
+    margin-top: -23px;
+    margin-left: 5px;
+}
+
 /* =============================== TEXT ============================== */
 h1 {
     color: #000000;
@@ -49,8 +55,11 @@ body > main {
 }
 
 body > section {
-    text-align: center;
-    margin: 20px 0;
+	display: flex;
+	flex-wrap: wrap;
+	text-align: center;
+	padding: 0;
+	margin: 20px auto;
 }
 
 /* =============================== FORM ============================== */
@@ -94,18 +103,28 @@ input:focus {
     margin-right: auto;
 }
 
-img {
-    width: 10%;
-    margin-top: -23px;
-    margin-left: 5px;
-}
-
 /* =============================== ARTICLE ============================== */
 article {
-    background-color: #ffffff;
+    min-width: 20em;
     max-width: 20em;
-    min-height: 15em;
+    min-height: 20em;
+    max-height: 20em;
     margin: 2em auto;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+article p {
+    color: #f42400;
+    margin-left: 15px;
+    align-self: flex-start;
+}
+
+article p:first-child {
+    font-size: 1.3em;
+    font-weight: bold;
 }
 
 /* =============================== FOOTER ============================== */
