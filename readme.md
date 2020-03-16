@@ -6,6 +6,7 @@ In this app you can sign-up, login, view other users who signed-up, view your ow
 ![index](https://i.imgur.com/jtd5APq.png) 
 ![sign-up](https://i.imgur.com/tykUlFb.png)
 ![login](https://i.imgur.com/xj67b0E.png)
+![profile](https://i.imgur.com/PgH238k.png)
 
 ## Table of contents
 1. [To-do](#to-do)
