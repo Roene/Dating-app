@@ -8,13 +8,11 @@ const auth      = require('../middleware/auth')
 const upload    = multer({dest: 'static/upload/'})
 
 router
-    // GET INDEX
     .get('/', (req, res) => { res.render('pages/index') })
-    // GET SIGNUP PAGE
     .get('/signup', (req, res) => { res.render('pages/signup') })
-    // GET LOGIN PAGE
     .get('/login', (req, res) => { res.render('pages/login') })
     // SOURCE : https://medium.com/swlh/jwt-authentication-authorization-in-nodejs-express-mongodb-rest-apis-2019-ad14ec818122
+    // Login expects the user fill in an email and password, if user is found create a token and redirect the user to the dashboard. 
     .post('/login', async (req, res) => {
         try {
             const { email, password } = req.body
@@ -32,6 +30,7 @@ router
         }
     })
     //END OF SOURCE
+    // Data send from the form to the database then generate token and redirect to dashboard. 
     .post('/signup', upload.single('image'), async (req, res) => {
         const user = new User({
             firstname: req.body.firstname,
@@ -51,11 +50,12 @@ router
             res.cookie('dating_token', token, {
                 maxAge: (24*7) * 60 * 60 * 1000 // 7 Days because it is in milliseconds
             })
-            res.redirect('/')
+            res.redirect('dashboard')
         } catch (err) {
             res.status(400).send(err)
         }
     })
+    // Logout, filter user token and return true if any tokens of is not equal to the token of the loggedin user
     .get('/logout', auth, async (req, res) => {
         try {
             req.user.tokens = req.user.tokens.filter((token) => {
@@ -68,6 +68,7 @@ router
             res.status(500).send(err)
         }
     })
+    // Render the dashboard expect with the user who is signed in. 
     .get('/dashboard', auth, async (req, res) =>  {
         try {
             const users = await User.find({ _id: {$ne: req.user._id} }).lean()

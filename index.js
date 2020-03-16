@@ -4,19 +4,19 @@ const bodyParser    = require('body-parser')
 // OWN FILES
 const auth = require('./routes/user')
 
-// MAKE CONNECTION TO DATABASE
+// Make connection to the database
 require('./db/db')
 
 express()
     .use('/static', express.static('static'))
     .use(bodyParser.urlencoded({extended: true}))
     .use(bodyParser.json())
-    // SET VIEW ENGINE TO EJS AND SEARCH IN MAP VIEWS
+    // Set view engine to ejs and let it search in the folder views
     .set('view engine', 'ejs')
     .set('views', 'views')
-    // USE AUTH.JS
+    // Use auth.js
     .use(auth)
-    // 404 IF USER GO TO UNKNOWN ROUTE
+    // 404 if user go to unkown route
     .use((req, res) => { res.status(404).render('pages/not-found') }) 
 
     .listen(3400);

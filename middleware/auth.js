@@ -3,6 +3,8 @@ const jwt   = require('jsonwebtoken')
 // OWN FILES
 const User  = require('../model/user')
 
+// This code checks if token is valid. The JWT verify returns a payload, now we have the payload that we can find the user id
+// and we store the user request (req.user = user).
 const auth = async (req, res, next) => {
     try {
         // SOURCE: https://github.com/LaupWing/Project-Tech/blob/master/App/routes/auth.js
