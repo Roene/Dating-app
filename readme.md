@@ -114,6 +114,7 @@ const userSchema = new mongoose.Schema({
 ![Database](https://i.imgur.com/ZM7PV2j.png)
 
 ## Code
+I tried to split up the code, in the *views folder* page you can find all the ejs pages and partials. In the *db folder* you can find the connection to the database. In the *middleware folder* you can find the auth.js file, this file is for the authentication when a user is loggedin or not. In the *routes folder* you can find user.js file this handles the routes when a user goes for example to `localhost:3400/login` or other routes that is connected with user functions. In the root of the project you can find index.js, this is the server file where I tell where the server runs and what the template engine is. 
 
 ## Render data
 To render data from the database I have chosen for the ejs template engine. This is an example in my project. You can find it in **views/pages/dashboard.ejs**. 
@@ -128,7 +129,7 @@ In this file I render data from the database in my ejs template. First I get the
         }
     })
 ``` 
-The data is saved in users, and send with the response to the frontend where you can access it. 
+The data from the database is saved in users expect the logged-in user and send with the response to the frontend where you can access it. 
 ```js
 <body>
 <%- include ('../partials/header') %>
@@ -144,6 +145,7 @@ The data is saved in users, and send with the response to the frontend where you
 <%- include ('../partials/nav') %>
 </body>
 ```
+Now you get the dashboard with all the data you asked. It wil render article with uploaded image as background and three paragraphs.
 
 ## Packages
 In this project I used packages from **NPM** : 
