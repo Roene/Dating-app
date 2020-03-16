@@ -53,6 +53,10 @@ Now you can run the project using the following command:
 ```
 npm start
 ```
+**or**
+```
+npm test
+```
 You can visit the app in:
 ```
 localhost:3400
@@ -114,7 +118,7 @@ const userSchema = new mongoose.Schema({
 ![Database](https://i.imgur.com/ZM7PV2j.png)
 
 ## Code
-I tried to split up the code, in the *views folder* page you can find all the ejs pages and partials. In the *db folder* you can find the connection to the database. In the *middleware folder* you can find the auth.js file, this file is for the authentication when a user is loggedin or not. In the *routes folder* you can find user.js file this handles the routes when a user goes for example to `localhost:3400/login` or other routes that is connected with user functions. In the root of the project you can find index.js, this is the server file where I tell where the server runs and what the template engine is. 
+I tried to split up the code, in the *views folder* you can find all the ejs pages and partials. In the *db folder* you can find the connection to the database. In the *middleware folder* you can find the auth.js file, this file is for the authentication when a user is loggedin or not. In the *routes folder* you can find user.js file this handles the routes when a user goes for example to `localhost:3400/login` or other routes that is connected with user functions like sign-up or user profile. In the root of the project you can find index.js, this is the server file where I tell where the server runs and what the template engine is. 
 
 ## Render data
 To render data from the database I have chosen for the ejs template engine. This is an example in my project. You can find it in **views/pages/dashboard.ejs**. 
