@@ -1,6 +1,5 @@
 const express       = require('express')
 const bodyParser    = require('body-parser')
-const session       = require('express-session')
 
 // OWN FILES
 const auth = require('./routes/user')
