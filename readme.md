@@ -75,6 +75,7 @@ In this project I used packages from **NPM** :
 In this project I used the following sources:
 * [JWT Authentication & Authorization in NodeJs/Express & MongoDB REST APIs(2019)](https://medium.com/swlh/jwt-authentication-authorization-in-nodejs-express-mongodb-rest-apis-2019-ad14ec818122)
 * [Loc Nguyen](https://github.com/LaupWing/Project-Tech/blob/master/App/middleware/auth.js)
+* [Faster Mongoose Queries With Lean](https://mongoosejs.com/docs/tutorials/lean.html)
 
 ## License
 MIT © [Roene Verbeek](https://github.com/Roene)

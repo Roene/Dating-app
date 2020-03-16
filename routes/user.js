@@ -8,10 +8,13 @@ const auth      = require('../middleware/auth')
 const upload    = multer({dest: 'static/upload/'})
 
 router
+    // GET INDEX
     .get('/', (req, res) => { res.render('pages/index') })
+    // GET SIGNUP PAGE
     .get('/signup', (req, res) => { res.render('pages/signup') })
+    // GET LOGIN PAGE
     .get('/login', (req, res) => { res.render('pages/login') })
-    // BRON : https://medium.com/swlh/jwt-authentication-authorization-in-nodejs-express-mongodb-rest-apis-2019-ad14ec818122
+    // SOURCE : https://medium.com/swlh/jwt-authentication-authorization-in-nodejs-express-mongodb-rest-apis-2019-ad14ec818122
     .post('/login', async (req, res) => {
         try {
             const { email, password } = req.body
@@ -28,6 +31,7 @@ router
             res.status(400).send('Email of wachtwoord klopt niet')
         }
     })
+    //END OF SOURCE
     .post('/signup', upload.single('image'), async (req, res) => {
         const user = new User({
             firstname: req.body.firstname,
@@ -67,19 +71,17 @@ router
     .get('/dashboard', auth, async (req, res) =>  {
         try {
             const users = await User.find({ _id: {$ne: req.user._id} }).lean()
-            res.render('pages/dashboard', {users})
-            console.log({users})
+            res.render('pages/dashboard', { users })
         } catch (err) {
-            console.log(err)
-            res.status(500).send('Er ging iets mis op de server')
+            res.status(500).send(err)
         }
     })
     .get('/profile', auth, (req, res) => {
         try {
             const user = req.user
-            res.render('pages/profile', {user})
+            res.render('pages/profile', { user })
         } catch (err) {
-            res.status(500).send('Er ging iets mis server')
+            res.status(500).send(err)
         }
     })
     .post('/delete', auth, async (req, res) => {
@@ -88,7 +90,7 @@ router
             await user.remove()
             res.status(204).redirect('/')
         } catch (err) {
-            res.status(500).send('Er ging iets niet goed met verwijderen')
+            res.status(500).send(err)
         }
     })
 
