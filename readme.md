@@ -12,9 +12,11 @@ In this app you can sign-up, login, view other users who signed-up, view your ow
 1. [To-do](#to-do)
 2. [Install](#install)
 3. [Database](#database-structure)
-4. [Packages](#packages)
-5. [Sources](#sources)
-6. [License](#license)
+4. [Code](#code)
+5. [Data](#render-data)
+6. [Packages](#packages)
+7. [Sources](#sources)
+8. [License](#license)
 
 ## To-do
 This is a list I want to have done in this project : 
@@ -58,7 +60,7 @@ localhost:3400
 and not in local👻
 
 ## Database structure
-To send data to the MongoDB database I made a Mongoose schema, here you can see how the schema works. You can find it in **models/user.js**. 
+To send data to the MongoDB database I made a Mongoose schema, here you can see how the schema works. You can find it in **model/user.js**. 
 ```js
 const userSchema = new mongoose.Schema({
     firstname: {
@@ -110,6 +112,38 @@ const userSchema = new mongoose.Schema({
 })
 ```
 ![Database](https://i.imgur.com/ZM7PV2j.png)
+
+## Code
+
+## Render data
+To render data from the database I have chosen for the ejs template engine. This is an example in my project. You can find it in **views/pages/dashboard.ejs**. 
+In this file I render data from the database in my ejs template. First I get the data from backend see **routes/user.js**
+```js
+    .get('/dashboard', auth, async (req, res) =>  {
+        try {
+            const users = await User.find({ _id: {$ne: req.user._id} }).lean()
+            res.render('pages/dashboard', { users })
+        } catch (err) {
+            res.status(500).send(err)
+        }
+    })
+``` 
+The data is saved in users, and send with the response to the frontend where you can access it. 
+```js
+<body>
+<%- include ('../partials/header') %>
+    <section>
+        <% users.forEach((user, index) => { %>
+        <article style="background-image: url('/static/upload/<%= user.image %>'); background-repeat: no-repeat; background-size: cover;">
+            <p><%= user.firstname + " " + user.surname + " " + user.age%></p>
+            <p><%= user.club %></p>
+            <p><%= user.description %></p>
+        </article>
+        <% }) %>
+    </section>
+<%- include ('../partials/nav') %>
+</body>
+```
 
 ## Packages
 In this project I used packages from **NPM** : 
