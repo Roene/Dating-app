@@ -170,4 +170,4 @@ In this project I used the following sources:
 * [Faster Mongoose Queries With Lean](https://mongoosejs.com/docs/tutorials/lean.html)
 
 ## License
-MIT © [Roene Verbeek](https://github.com/Roene)
+[MIT](https://github.com/Roene/Dating-app/blob/master/LICENSE.MD) © [Roene Verbeek](https://github.com/Roene)
