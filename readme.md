@@ -11,7 +11,7 @@ In this app you can sign-up, login, view other users who signed-up, view your ow
 ## Table of contents
 1. [To-do](#to-do)
 2. [Install](#install)
-3. [Code](#code)
+3. [Database](#database-structure)
 4. [Packages](#packages)
 5. [Sources](#sources)
 6. [License](#license)
@@ -41,7 +41,7 @@ Now you have the project local. Next step is to get all the npm packages you can
 ```
 npm install 
 ```
-Now you have to create your own database. You can follow installation instructions [here](https://www.mongodb.com/cloud/atlas). If you have created your database you have to create a file called **.env** in here you put the following things:
+Now you have to create your own database. You can follow installation instructions [here](https://www.mongodb.com/cloud/atlas). If you have created your database you have to create a file named `.env` in here you put the following things:
 ```
 MONGODB_URI=<url to database>
 DB_NAME=<database name>
@@ -57,7 +57,59 @@ localhost:3400
 ``` 
 and not in local👻
 
-## Code
+## Database structure
+To send data to the MongoDB database I made a Mongoose schema, here you can see how the schema works. You can find it in **models/user.js**. 
+```js
+const userSchema = new mongoose.Schema({
+    firstname: {
+        type: String,
+        required: true
+    }, 
+    surname: {
+        type: String,
+        required: true
+    }, 
+    age: {
+        type: Number,
+        required: true
+    }, 
+    gender: {
+        type: String,
+        required: true
+    }, 
+    club: {
+        type: String,
+        required: true
+    }, 
+    image: {
+        type: String,
+        required: true
+    }, 
+    email: {
+        type: String,
+        required: true
+    }, 
+    password: {
+        type: String,
+        required: true
+    }, 
+    searchGender: {
+        type: String,
+        required: true
+    }, 
+    description: {
+        type: String,
+        required: false
+    }, 
+    tokens: [{
+        token: {
+            type: String,
+            require: true
+        }
+    }]
+})
+```
+![Database](https://i.imgur.com/ZM7PV2j.png)
 
 ## Packages
 In this project I used packages from **NPM** : 
