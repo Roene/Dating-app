@@ -8,7 +8,7 @@ In this app you can sign-up, login, view other users who signed-up, view your ow
 ![login](https://i.imgur.com/xj67b0E.png)
 
 ## Table of contents
-1. [to-do](#to-do)
+1. [To-do](#to-do)
 2. [Install](#install)
 3. [Code](#code)
 4. [Packages](#packages)
@@ -31,25 +31,30 @@ This is a list I want to have done in this project :
 ## Install
 To install this project you have to clone it first. 
 *Use your terminal and go to your folder where you want this project.*
-Then you have to do this. 
+Then you have to do this:
 ```
 git clone https://github.com/Roene/Dating-app.git
 cd Dating-app
 ```
-Now you have the project local. Next step is to get all the npm packages you can do this with this command.
+Now you have the project local. Next step is to get all the npm packages you can do this with this command:
 ```
 npm install 
 ```
-Now you have to create your own database. You can follow installation instructions [here](https://www.mongodb.com/cloud/atlas). If you have created your database you have to create a file called **.env** in here you put the following thins
+Now you have to create your own database. You can follow installation instructions [here](https://www.mongodb.com/cloud/atlas). If you have created your database you have to create a file called **.env** in here you put the following things:
 ```
 MONGODB_URI=<url to database>
 DB_NAME=<database name>
 JWT_KEY=<random string>
 ```
-Now you can run the project using the following command. 
+Now you can run the project using the following command:
 ```
 npm start
 ```
+You can visit the app in:
+```
+localhost:3400
+``` 
+and not in local👻
 
 ## Code
 
