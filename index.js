@@ -19,4 +19,4 @@ express()
     // 404 if user go to unkown route
     .use((req, res) => { res.status(404).render('pages/not-found') }) 
 
-    .listen(3400);
+    .listen(process.env.PORT || 3400);
