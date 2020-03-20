@@ -3,10 +3,10 @@
 <body>
 <%- include ('../partials/header') %>
         <section>
-            <p>Om gebruik te maken van EreDate heb je een account nodig. Maak deze hieronder aan</p>
+            <p>Om je account gegevens te updaten moet je dit formulier invullen</p>
         </section>
 
-        <form method="POST" action="/profileEdit" enctype="multipart/form-data">
+        <form method="POST" action="/profile-edit" enctype="multipart/form-data">
             <label for="firstname">Voornaam</label><input id="firstname" type="text" name="firstname" placeholder="John" value="<%= user.firstname%>" required>
             <label for="surname">Achternaam</label><input id="surname" type="text" name="surname" placeholder="Doe" value="<%= user.surname%>" required>
 
@@ -44,7 +44,7 @@
 
             <label for="email">Email</label><input id="email" type="email" name="email" placeholder="example@example.com" value="<%= user.email%>" required>
 
-            <label for="password">Wachtwoord</label><input id="password" type="password" name="password" value="<%= user.password%>" required>
+            <label for="password">Wachtwoord</label><input id="password" type="password" name="password" required>
 
             <label for="searchGender">Opzoek naar</label>
             <input type="radio" name="searchGender" value="man" required>Man

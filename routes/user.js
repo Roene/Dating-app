@@ -93,6 +93,15 @@ router
             res.status(500).send(err)
         }
     })
+    .post('/profile-edit', auth, async (req, res) => {
+        try {
+            const user = req.user
+            await user.updateOne()
+            res.redirect('/profile')
+        } catch (err) {
+            res.status(500).send(err)
+        }
+    })
     .post('/delete', auth, async (req, res) => {
         try {
             const user = req.user
