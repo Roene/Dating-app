@@ -24,9 +24,9 @@ This is a list I want to have done in this project :
 - [X] User can login with email and password.
 - [X] User can see other users.
 - [X] User can see his own profile.
-- [ ] User can edit his own profile.
+- [X] User can edit his own profile.
 - [X] User can delete his own profile.
-- [ ] User can only see user who support the same football club.
+- [X] User can only see user who support the same football club.
 - [ ] User can view detail page from other user.
 - [ ] User can use filters to change dashboard view.
 - [ ] User can chat with other users.
@@ -150,6 +150,8 @@ The data from the database is saved in users expect the logged-in user and send 
 </body>
 ```
 Now you get the dashboard with all the data you asked. It wil render article with uploaded image as background and three paragraphs.
+
+## Update data
 
 ## Packages
 In this project I used packages from **NPM** : 

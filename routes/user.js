@@ -81,7 +81,7 @@ router
     // Render the dashboard expect with the user who is signed in. 
     .get('/dashboard', auth, async (req, res) =>  {
         try {
-            const users = await User.find({ _id: {$ne: req.user._id} }).lean()
+            const users = await User.find({ _id: {$ne: req.user._id}, club: {$in: req.user.club} }).lean()
             res.render('pages/dashboard', { users })
         } catch (err) {
             res.status(500).send(err)
