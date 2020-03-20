@@ -5,7 +5,8 @@
     <main>
         <img src="/static/upload/<%= user.image %>" alt="profiel foto">
         <p>Welkom <%= user.firstname + " " + user.surname%> op je profiel. Als je je account wil verwijderen klik dan op de verwijder knop hieronder.
-        Let op dit kan niet meer ongedaan worden gemaakt!. Wil je je account gegevens updaten? Klik dan op <a href="/profile-edit">hier</a></p>
+        Let op dit kan niet meer ongedaan worden gemaakt!. Wil je je account gegevens updaten? Klik dan op knop profiel aanpassen.</p>
+        <a class="button" href="/profile-edit">Profiel aanpassen</a>
         <form method="POST" action="/delete" >
             <button class="button delete loginButton">Verwijder account</button>
         </form>

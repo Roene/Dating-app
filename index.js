@@ -2,10 +2,11 @@ const express       = require('express')
 const bodyParser    = require('body-parser')
 
 // OWN FILES
-const auth = require('./routes/user')
+const userRoute     = require('./routes/user')
+const dbconnection  = require('./db/db')
 
 // Make connection to the database
-require('./db/db')
+dbconnection()
 
 express()
     .use('/static', express.static('static'))
@@ -15,7 +16,7 @@ express()
     .set('view engine', 'ejs')
     .set('views', 'views')
     // Use auth.js
-    .use(auth)
+    .use(userRoute)
     // 404 if user go to unkown route
     .use((req, res) => { res.status(404).render('pages/not-found') }) 
 
