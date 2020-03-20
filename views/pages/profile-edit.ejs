@@ -7,10 +7,10 @@
         </section>
 
         <form method="POST" action="/profileEdit" enctype="multipart/form-data">
-            <label for="firstname">Voornaam</label><input id="firstname" type="text" name="firstname" placeholder="John" required>
-            <label for="surname">Achternaam</label><input id="surname" type="text" name="surname" placeholder="Doe" required>
+            <label for="firstname">Voornaam</label><input id="firstname" type="text" name="firstname" placeholder="John" value="<%= user.firstname%>" required>
+            <label for="surname">Achternaam</label><input id="surname" type="text" name="surname" placeholder="Doe" value="<%= user.surname%>" required>
 
-            <label for="age">Leeftijd</label><input id="age" type="number" name="age" min="18" max="99" placeholder="18" required>
+            <label for="age">Leeftijd</label><input id="age" type="number" name="age" min="18" max="99" placeholder="18" value="<%= user.age%>" required>
 
             <label for="gender">Geslacht</label>
             <input type="radio" name="gender" value="man" required>Man
@@ -42,16 +42,16 @@
 
             <label for="photo">Profiel foto</label><input id="photo" type="file" name="image" accept=image/*>
 
-            <label for="email">Email</label><input id="email" type="email" name="email" placeholder="example@example.com" required>
+            <label for="email">Email</label><input id="email" type="email" name="email" placeholder="example@example.com" value="<%= user.email%>" required>
 
-            <label for="password">Wachtwoord</label><input id="password" type="password" name="password" required>
+            <label for="password">Wachtwoord</label><input id="password" type="password" name="password" value="<%= user.password%>" required>
 
             <label for="searchGender">Opzoek naar</label>
             <input type="radio" name="searchGender" value="man" required>Man
             <input type="radio" name="searchGender" value="female">Vrouw
             <input type="radio" name="searchGender" value="other">Anders
 
-            <label for="omschrijving">Omschrijving van jezelf</label><textarea id="omschrijving" name="description" rows="7" cols="45"></textarea>
+            <label for="omschrijving">Omschrijving van jezelf</label><textarea id="omschrijving" name="description" rows="7" cols="45" ><%= user.description%></textarea>
 
             <button class="button profileEdit" type="submit">Update profiel</button>
         </form>
