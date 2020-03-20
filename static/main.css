@@ -108,6 +108,10 @@ input:focus {
     margin-right: auto;
 }
 
+.profileEdit {
+    width: 200px;
+}
+
 img {
     width: 40%;
 }

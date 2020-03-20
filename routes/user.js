@@ -85,6 +85,7 @@ router
             res.status(500).send(err)
         }
     })
+    .get('/profile-edit', (req, res) => { res.render('pages/profile-edit') })
     .post('/delete', auth, async (req, res) => {
         try {
             const user = req.user
