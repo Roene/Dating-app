@@ -13,31 +13,31 @@
             <label for="age">Leeftijd</label><input id="age" type="number" name="age" min="18" max="99" placeholder="18" value="<%= user.age%>" required>
 
             <label for="gender">Geslacht</label>
-            <input type="radio" name="gender" value="man" required>Man
-            <input type="radio" name="gender" value="female">Vrouw
-            <input type="radio" name="gender" value="other">Anders
+            <input type="radio" name="gender" value="man" required <%if(user.gender === "man") {%> <%="checked"%> <%}%> >Man
+            <input type="radio" name="gender" value="female" <%if(user.gender === "vrouw") {%> <%="checked"%> <%}%>     >Vrouw
+            <input type="radio" name="gender" value="other" <%if(user.gender === "anders") {%> <%="checked"%> <%}%>     >Anders
 
             <label>Eredivisie club</label>
             <select name="club" required>
                 <option value="">Selecteer Eredivisie club:</option>
-                <option value="ADO">ADO</option>
-                <option value="Ajax">Ajax</option>
-                <option value="AZ">AZ</option>
-                <option value="FC Emmen">FC Emmen</option>
-                <option value="Sparta Rotterdam">Sparta Rotterdam</option>
-                <option value="Feyenood">Feyenoord</option>
-                <option value="Fortuna Sittard">Fortuna Sittard</option>
-                <option value="RKC Waalwijk">RKC Waalwijk</option>
-                <option value="FC Groningen">FC Groningen</option>
-                <option value="SC Heerenveen">SC Heerenveen</option>
-                <option value="Heracles Almelo">Heracles Almelo</option>
-                <option value="FC Twente">FC Twente</option>
-                <option value="PEC Zwolle">PEC Zwolle</option>
-                <option value="PSV">PSV</option>
-                <option value="FC Utrecht">FC Utrecht</option>
-                <option value="Vitesse">Vitesse</option>
-                <option value="VVV Venlo">VVV Venlo</option>
-                <option value="Willem 2">Willem 2</option>
+                <option value="ADO" <%if(user.club === "ADO") {%> <%="selected"%> <%}%>                             >ADO</option>
+                <option value="Ajax" <%if(user.club === "Ajax") {%> <%="selected"%> <%}%>                           >Ajax</option>
+                <option value="AZ" <%if(user.club === "AZ") {%> <%="selected"%> <%}%>                               >AZ</option>
+                <option value="FC Emmen" <%if(user.club === "FC Emmen") {%> <%="selected"%> <%}%>                   >FC Emmen</option>
+                <option value="Sparta Rotterdam" <%if(user.club === "Sparta Rotterdam") {%> <%="selected"%> <%}%>   >Sparta Rotterdam</option>
+                <option value="Feyenood" <%if(user.club === "Feyenoord") {%> <%="selected"%> <%}%>                  >Feyenoord</option>
+                <option value="Fortuna Sittard" <%if(user.club === "Fortuna Sittard") {%> <%="selected"%> <%}%>     >Fortuna Sittard</option>
+                <option value="RKC Waalwijk" <%if(user.club === "RKC Waalwijk") {%> <%="selected"%> <%}%>           >RKC Waalwijk</option>
+                <option value="FC Groningen" <%if(user.club === "FC Groningen") {%> <%="selected"%> <%}%>           >FC Groningen</option>
+                <option value="SC Heerenveen" <%if(user.club === "SC Heerenveen") {%> <%="selected"%> <%}%>         >SC Heerenveen</option>
+                <option value="Heracles Almelo" <%if(user.club === "Heracles Almelo") {%> <%="selected"%> <%}%>     >Heracles Almelo</option>
+                <option value="FC Twente" <%if(user.club === "FC Twente") {%> <%="selected"%> <%}%>                 >FC Twente</option>
+                <option value="PEC Zwolle" <%if(user.club === "PEC Zwolle") {%> <%="selected"%> <%}%>               >PEC Zwolle</option>
+                <option value="PSV" <%if(user.club === "PSV") {%> <%="selected"%> <%}%>                             >PSV</option>
+                <option value="FC Utrecht" <%if(user.club === "FC Utrecht") {%> <%="selected"%> <%}%>               >FC Utrecht</option>
+                <option value="Vitesse" <%if(user.club === "Vitesse") {%> <%="selected"%> <%}%>                     >Vitesse</option>
+                <option value="VVV Venlo" <%if(user.club === "VVV Venlo") {%> <%="selected"%> <%}%>                 >VVV Venlo</option>
+                <option value="Willem 2" <%if(user.club === "Willem 2") {%> <%="selected"%> <%}%>                   >Willem 2</option>
             </select>
 
             <label for="photo">Profiel foto</label><input id="photo" type="file" name="image" accept=image/*>
@@ -47,15 +47,15 @@
             <label for="password">Wachtwoord</label><input id="password" type="password" name="password" required>
 
             <label for="searchGender">Opzoek naar</label>
-            <input type="radio" name="searchGender" value="man" required>Man
-            <input type="radio" name="searchGender" value="female">Vrouw
-            <input type="radio" name="searchGender" value="other">Anders
+            <input type="radio" name="searchGender" value="man" required <%if(user.searchGender === "man") {%> <%="checked"%> <%}%> >Man
+            <input type="radio" name="searchGender" value="female" <%if(user.searchGender === "female") {%> <%="checked"%> <%}%>    >Vrouw
+            <input type="radio" name="searchGender" value="other" <%if(user.searchGender === "other") {%> <%="checked"%> <%}%>      >Anders
 
             <label for="omschrijving">Omschrijving van jezelf</label><textarea id="omschrijving" name="description" rows="7" cols="45" ><%= user.description%></textarea>
 
             <button class="button profileEdit" type="submit">Update profiel</button>
         </form>
 
-<%- include ('../partials/footer') %>
+<%- include ('../partials/nav') %>
 
 </body>
