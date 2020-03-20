@@ -5,7 +5,17 @@ const multer    = require('multer')
 const User      = require('../model/user')
 const auth      = require('../middleware/auth')
 
-const upload    = multer({dest: 'static/upload/'})
+const storage   = multer.diskStorage({
+    destination: (req, file, callback) => {
+        callback(null, 'static/upload/')
+    },
+    filename: (req, file, callback) => {
+        callback(null, file.originalname)
+    }
+})
+
+const upload = multer({ storage: storage })
+
 
 router
     .get('/', (req, res) => { res.render('pages/index') })
