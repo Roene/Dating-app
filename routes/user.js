@@ -93,10 +93,22 @@ router
             res.status(500).send(err)
         }
     })
-    .post('/profile-edit', auth, async (req, res) => {
+    .post('/profile-edit', upload.single('image'), auth, async (req, res) => {
         try {
             const user = req.user
-            await user.updateOne()
+
+            user.firstname = req.body.firstname,
+            user.surname = req.body.surname,
+            user.age = req.body.age,
+            user.gender = req.body.gender,
+            user.club = req.body.club,
+            user.image = req.file ? req.file.filename : null,
+            user.email = req.body.email,
+            user.password = req.body.password,
+            user.searchGender = req.body.searchGender,
+            user.description = req.body.description
+
+            await user.save()
             res.redirect('/profile')
         } catch (err) {
             res.status(500).send(err)
