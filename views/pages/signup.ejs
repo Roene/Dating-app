@@ -18,29 +18,15 @@
             <input type="radio" name="gender" value="other">Anders
 
             <label>Eredivisie club</label>
+            <% const clubs = ['ADO', 'Ajax', 'AZ', 'FC Emmen', 'Sparta Rotterdam', 'Feyenoord', 'Fortuna Sittard', 'RKC Waalwijk', 'FC Groningen', 'SC Heerenveen',
+            'Heracles Almelo', 'FC Twente', 'PEC Zwolle', 'PSV', 'FC Utrecht', 'Vitesse', 'VVV Venlo', 'Willem 2'] %>
             <select name="club" required>
-                <option value="">Selecteer Eredivisie club:</option>
-                <option value="ADO">ADO</option>
-                <option value="Ajax">Ajax</option>
-                <option value="AZ">AZ</option>
-                <option value="FC Emmen">FC Emmen</option>
-                <option value="Sparta Rotterdam">Sparta Rotterdam</option>
-                <option value="Feyenood">Feyenoord</option>
-                <option value="Fortuna Sittard">Fortuna Sittard</option>
-                <option value="RKC Waalwijk">RKC Waalwijk</option>
-                <option value="FC Groningen">FC Groningen</option>
-                <option value="SC Heerenveen">SC Heerenveen</option>
-                <option value="Heracles Almelo">Heracles Almelo</option>
-                <option value="FC Twente">FC Twente</option>
-                <option value="PEC Zwolle">PEC Zwolle</option>
-                <option value="PSV">PSV</option>
-                <option value="FC Utrecht">FC Utrecht</option>
-                <option value="Vitesse">Vitesse</option>
-                <option value="VVV Venlo">VVV Venlo</option>
-                <option value="Willem 2">Willem 2</option>
+               <% for (club of clubs) { %>
+                    <option value="<%= club %>" ><%= club %> </option>
+               <% } %>
             </select>
 
-            <label for="photo">Profiel foto</label><input id="photo" type="file" name="image" accept=image/*>
+            <label for="photo">Profiel foto</label><input id="photo" type="file" name="image" accept="image/*">
 
             <label for="email">Email</label><input id="email" type="email" name="email" placeholder="example@example.com" required>
 
