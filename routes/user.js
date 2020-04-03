@@ -105,7 +105,7 @@ router
     })
     // Here I update the data from the user. In the const user I store the loggedin user object from the database. 
     // Then I have the form in the Front-end the user filled in, after that I save the new information and redirect to the profile.
-    .post('/profile-edit', upload.single('image'), auth, async (req, res) => {
+    .post('/profile-edit', auth, async (req, res) => {
         try {
             const user = req.user
 
