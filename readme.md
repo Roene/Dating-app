@@ -1,7 +1,7 @@
 # Dating app 
 This is a project for my backend assesment and Project Tech. It it is a dynamic website using Git, Express, Node.js and MongoDB / Mongoose. This dating app is for users who support one of the 18 Eredivisie football clubs in the season 2019/2020.
 
-In this app you can sign-up, login, view other users who signed-up, view your own profile and delete your profile. The app is only for mobile devices 📱.
+In this app you can sign-up, login, view other users who signed-up, view your own profile, edit your own profile and delete your profile. The app is only for mobile devices 📱.
 
 ![index](https://i.imgur.com/jtd5APq.png) 
 ![sign-up](https://i.imgur.com/tykUlFb.png)
@@ -135,7 +135,7 @@ In this file I render data from the database in my ejs template. First I get the
         }
     })
 ``` 
-The data from the database is saved in users expect the logged-in user and send with the response to the frontend where you can access it. The second argument in the query is to filter the club. All users have filled in a football club from the Eredivisie. We only want to see the users who filled in the same football club. The `.lean()` is for performance because we give a custum query to the model.  
+The data from the database is saved in users expect the logged in user and send with the response to the frontend where you can access it. The second argument in the query is to filter the club. All users have filled in a football club from the Eredivisie. We only want to see the users who filled in the same football club. The `.lean()` is for performance because we give a custum query to the model.  
 ```js
 <body>
 <%- include ('../partials/header') %>
@@ -154,7 +154,7 @@ The data from the database is saved in users expect the logged-in user and send 
 Now you get the dashboard with all the data you asked. It wil render article with uploaded image as background and three paragraphs.
 
 ## Update data
-When we want to update date we render the page *profile-edit*, this can be found in the folder **views/pages/profile-edit.ejs**. In here there is a form where the user can edit the personal information. In the backend we make a get request to render the page with the information from the logged in user. This can be found in the folder **routes/user.js**
+When we want to update data we render the page *profile-edit*, this can be found in the folder **views/pages/profile-edit.ejs**. In here there is a form where the user can edit the personal information. In the backend we make a get request to render the page with the information from the logged in user. This can be found in the folder **routes/user.js**
 ```js
     .get('/profile-edit',  auth, (req, res) => { 
         try {
