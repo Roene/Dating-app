@@ -14,9 +14,10 @@ In this app you can sign-up, login, view other users who signed-up, view your ow
 3. [Database](#database-structure)
 4. [Code](#code)
 5. [Data](#render-data)
-6. [Packages](#packages)
-7. [Sources](#sources)
-8. [License](#license)
+6. [Update](#update-data)
+7. [Packages](#packages)
+8. [Sources](#sources)
+9. [License](#license)
 
 ## To-do
 This is a list I want to have done in this project : 
