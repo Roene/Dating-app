@@ -114,9 +114,7 @@ router
             user.age = req.body.age,
             user.gender = req.body.gender,
             user.club = req.body.club,
-            user.image = req.file ? req.file.filename : null,
             user.email = req.body.email,
-            user.password = req.body.password,
             user.searchGender = req.body.searchGender,
             user.description = req.body.description
 

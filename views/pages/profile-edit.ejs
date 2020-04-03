@@ -26,11 +26,7 @@
                <% } %>
             </select>
 
-            <label for="photo">Profiel foto</label><input id="photo" type="file" name="image" accept="image/*">
-
             <label for="email">Email</label><input id="email" type="email" name="email" placeholder="example@example.com" value="<%= user.email%>" required>
-
-            <label for="password">Wachtwoord</label><input id="password" type="password" name="password" required>
 
             <label for="searchGender">Opzoek naar</label>
             <input type="radio" name="searchGender" value="man" required <%if(user.searchGender === "man") {%> <%="checked"%> <%}%> >Man
