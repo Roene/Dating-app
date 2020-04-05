@@ -135,7 +135,7 @@ In this file I render data from the database in my ejs template. First I get the
         }
     })
 ``` 
-The data from the database is saved in users expect the logged in user and send with the response to the frontend where you can access it. The second argument in the query is to filter the club. All users have filled in a football club from the Eredivisie. We only want to see the users who filled in the same football club. The `.lean()` is for performance because we give a custum query to the model.  
+The data from the database is saved in users expect the logged in user and send with the response to the frontend where you can access it. The second argument in the query is to filter the club. All users have filled in a football club from the Eredivisie. We only want to see the users who filled in the same football club. The `.lean()` is for performance because we give a custom query to the model.  
 ```js
 <body>
 <%- include ('../partials/header') %>
@@ -151,7 +151,8 @@ The data from the database is saved in users expect the logged in user and send 
 <%- include ('../partials/nav') %>
 </body>
 ```
-Now you get the dashboard with all the data you asked. It wil render article with uploaded image as background and three paragraphs.
+Now you get the dashboard with the firstname, surename, age, club and description. 
+It wil render article with uploaded image as background and three paragraphs.
 
 ## Update data
 When we want to update data we render the page *profile-edit*, this can be found in the folder **views/pages/profile-edit.ejs**. In here there is a form where the user can edit the personal information. In the backend we make a get request to render the page with the information from the logged in user. This can be found in the folder **routes/user.js**
@@ -169,17 +170,17 @@ Then we have a form in our front-end where the user change the personal informat
 ```js
     // Here I update the data from the user. In the const user I store the loggedin user object from the database. 
     // Then I have the form in the Front-end the user filled in, after that I save the new information and redirect to the profile.
-    .post('/profile-edit', auth, async (req, res) => {
+    .post('/profile-edit', upload.single('image'), auth, async (req, res) => {
         try {
             const user = req.user
 
-            user.firstname = req.body.firstname,
-            user.surname = req.body.surname,
-            user.age = req.body.age,
-            user.gender = req.body.gender,
-            user.club = req.body.club,
-            user.email = req.body.email,
-            user.searchGender = req.body.searchGender,
+            user.firstname = req.body.firstname
+            user.surname = req.body.surname
+            user.age = req.body.age
+            user.gender = req.body.gender
+            user.club = req.body.club
+            user.email = req.body.email
+            user.searchGender = req.body.searchGender
             user.description = req.body.description
 
             await user.save()
@@ -201,7 +202,7 @@ In this project I used packages from **NPM** :
 * [jwt](https://www.npmjs.com/package/jsonwebtoken)
 * [multer](https://www.npmjs.com/package/multer)
 * [mongoose](https://www.npmjs.com/package/mongoose)
-* [nodemon](https://www.npmjs.com/package/nodemon)
+* [nodemon](https://www.npmjs.com/package/nodemon) **(Dev)**
 
 ## Sources
 In this project I used the following sources:
